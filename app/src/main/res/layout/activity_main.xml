@@ -51,32 +51,107 @@
         android:columnCount="4">
 
         <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
 
         </ImageView>
 
         <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+
+
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
 
         </ImageView>
 
         <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
 
         </ImageView>
-
         <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
+
+        </ImageView>
+        <ImageView
+            android:layout_height="150px"
+            android:layout_width="75px"
+            android:src="@drawable/descarga">
 
         </ImageView>
 
     </GridLayout>
+
+
 </LinearLayout>
