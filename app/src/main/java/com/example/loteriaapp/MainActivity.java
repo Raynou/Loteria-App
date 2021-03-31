@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 //Importaciones de AddMob
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -19,16 +20,17 @@ import com.google.android.gms.ads.InterstitialAd;
 //Fin de las implementaciones de AddMob
 
 public class MainActivity extends AppCompatActivity {
+
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
     private Button btnDownload;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
         initAdds();
+
     }
 
     public void init(){
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void initAdds() {
+    public void initAdds(){
         //Empieza AddMob
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
