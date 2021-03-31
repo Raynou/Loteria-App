@@ -4,8 +4,9 @@
     android:layout_height="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#242446"
-    app:title="xd"
+    app:title="Loteria"
     app:titleTextColor="@color/white"
+    app:logo="@mipmap/ic_launcher"
     >
 
 </androidx.appcompat.widget.Toolbar>

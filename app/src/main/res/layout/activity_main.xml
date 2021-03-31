@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white">
 
-    <include layout="@layout/toolbar">
+    <include layout="@layout/toolbar"
+        android:id="@+id/mainToolbar">
     </include>
 
 
@@ -22,14 +24,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hola, soy el 1er botón">
+                android:text="Generate">
 
             </Button>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hola, soy el 1er botón">
+                android:text="Download"
+                android:id="@+id/downloadButton">
 
             </Button>
         </LinearLayout>
@@ -39,116 +42,135 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hola, soy el segundo botón">
+                android:text="New Grid">
             </Button>
         </LinearLayout>
     </LinearLayout>
 
     <GridLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rowCount="4"
-        android:columnCount="4">
+        android:columnCount="4"
+        android:layout_gravity="center"
+        >
 
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
-
-        </ImageView>
-
-        <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
-
-        </ImageView>
-        <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
-
-        </ImageView>
-        <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
-
-        </ImageView>
-        <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
 
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
 
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
         <ImageView
-            android:layout_height="150px"
-            android:layout_width="75px"
-            android:src="@drawable/ic_launcher_background">
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
+
+        </ImageView>
+
+        <ImageView
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
+
+        </ImageView>
+        <ImageView
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
+
+        </ImageView>
+        <ImageView
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
+
+        </ImageView>
+        <ImageView
+            android:layout_height="250px"
+            android:layout_width="200px"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_margin="5sp">>
 
         </ImageView>
 
     </GridLayout>
+    
 </LinearLayout>
