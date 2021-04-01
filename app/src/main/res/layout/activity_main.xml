@@ -1,181 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity"
     android:background="@color/white">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/mainToolbar">
-    </include>
-
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar"
+            android:id="@+id/mainToolbar">
+        </include>
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Button
+            android:orientation="horizontal">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Generate">
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Generate"
+                    android:id="@+id/btnGenerate">
 
-            </Button>
+                </Button>
 
-            <Button
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Download"
+                    android:id="@+id/downloadButton">
+
+                </Button>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Download"
-                android:id="@+id/downloadButton">
-
-            </Button>
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Grid"
+                    android:id="@+id/btnNewGrid">
+                </Button>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
+
+        <GridLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Grid">
-            </Button>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="4"
+            android:rowCount="4"
+            android:id="@+id/tabla">
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img1">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img2">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img3">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img4">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img5">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img6">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img7">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img8">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img9">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img10">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img11">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img12">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img13">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img14">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img15">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100sp"
+                android:layout_height="75sp"
+                android:layout_margin="2sp"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/img16">
+
+            </ImageView>
+
+        </GridLayout>
     </LinearLayout>
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rowCount="4"
-        android:columnCount="4"
-        android:layout_gravity="center"
-        >
-
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-        <ImageView
-            android:layout_height="250px"
-            android:layout_width="200px"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_margin="5sp">>
-
-        </ImageView>
-
-    </GridLayout>
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -184,4 +220,4 @@
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
     </com.google.android.gms.ads.AdView>
     
-</LinearLayout>
+</RelativeLayout>
