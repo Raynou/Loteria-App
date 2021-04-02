@@ -3,11 +3,9 @@ package com.example.loteriaapp;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
@@ -24,16 +22,17 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+
 import java.io.File;
-import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-//Importaciones de AddMob
-//Fin de las implementaciones de AddMob
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    private Button btnDownload, btnGenerate, btnNewGrid;
+    private Button btnDownload, btnGenerate, btnNewGrid, btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +53,49 @@ public class MainActivity extends AppCompatActivity {
         initAdds();
         callPermissions();
 
+    }
+
+    public void init() {
+        btnDownload = (Button) findViewById(R.id.downloadButton);
+        btnGenerate = (Button) findViewById(R.id.btnGenerate);
+        btnNewGrid = (Button) findViewById(R.id.btnNewGrid);
+        btnGuardar = (Button) findViewById(R.id.guardar);
+
+        btnDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "El anuncio no ha sido cargado aún.");
+                }
+
+            }
+        });
+        btnGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarImagenes();
+            }
+        });
+
+        btnNewGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GridLayout grid = (GridLayout) findViewById(R.id.tabla);
+                ImageView img1 = findViewById(R.id.img1);
+                Bitmap b = Screeenshot.tomarCaptura(grid);
+                img1.setImageBitmap(b);
+
+            }
+        });
     }
 
     private void callPermissions() {
@@ -130,45 +172,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public void init() {
-        btnDownload = (Button) findViewById(R.id.downloadButton);
-        btnGenerate = (Button) findViewById(R.id.btnGenerate);
-        btnNewGrid = (Button) findViewById(R.id.btnNewGrid);
 
-        btnDownload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GridLayout grid = (GridLayout) findViewById(R.id.tabla);
-                ImageView img1 = findViewById(R.id.img1);
-                Toast.makeText(MainActivity.this, "Captura de pantalla realizada.", Toast.LENGTH_SHORT).show();
-                Bitmap b = Screeenshot.tomarCaptura(grid);
-                img1.setImageBitmap(b);
-
-
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    Log.d("TAG", "El anuncio no ha sido cargado aún.");
-                }
-
-                guardarImagen();
-
-            }
-        });
-        btnGenerate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarImagenes();
-            }
-        });
-
-        btnNewGrid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-    }
 
     public void initAdds() {
         //Empieza AddMob
@@ -198,42 +202,20 @@ public class MainActivity extends AppCompatActivity {
         //Termina AddMob
     }
 
-    public void guardarImagen(){
-        ImageView img1 = (ImageView) findViewById(R.id.img1);
+    public void guardarImagen(Bitmap b){
+        /*
+        * 1. Agarrar la imagen tipo Bitmap que esta en el imageView o directamente agarrar la imagen en la variable
+        * 2. ¿Cómo guardo una imagen de tipo Bitmap en el almacenamiento del teléfono?
+        * 3. ¿Dónde la guardo? ¿En la dirección del teléfono?, ¿Dónde consigo esa dirección?
+        * 4. Una vez tengo la dirección necesaria, vuelvo al punto 2, ¿cómo la guardo?
+        * 5. Básicamente, tomar el objeto, tomar la dirección y guardar el objeto en esa dirección
+        *
+        * */
 
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) img1.getDrawable();
-        Bitmap bitmap = bitmapDrawable.getBitmap();
-
-        FileOutputStream outputStream = null;
-        File file = Environment.getExternalStorageDirectory();
-        File dir  = new File(file.getAbsolutePath() + "/LoteriaApp");
-        dir.mkdirs();
-
-        String filename = String.format("%d.png", System.currentTimeMillis());
-
-        File outfile = new File(dir, filename);
-        try{
-            outputStream  = new FileOutputStream(outfile);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100,outputStream);
-
-
-        try {
-            outputStream.flush();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        try {
-            outputStream.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
+        //SimpleDateFormat format = SimpleDateFormat("EE d MM yy", currentLocale);
     }
-
-
 }
+
+
 
 

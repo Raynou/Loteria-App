@@ -43,12 +43,21 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <Button
+                    android:id="@+id/btnNewGrid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Grid"
-                    android:id="@+id/btnNewGrid">
+                    android:text="New Grid"></Button>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/guardar"
+                    android:text="Guardar">
+
                 </Button>
             </LinearLayout>
         </LinearLayout>

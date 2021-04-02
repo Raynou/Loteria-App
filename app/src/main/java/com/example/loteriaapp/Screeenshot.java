@@ -12,7 +12,7 @@ public class Screeenshot {
         return b;
     }
 
-    public static Bitmap tomarCapturaDeVistaRaíz(View v){
+    /*public static Bitmap tomarCapturaDeVistaRaíz(View v){
         return tomarCaptura(v.getRootView());
-    }
+    }*/
 }
