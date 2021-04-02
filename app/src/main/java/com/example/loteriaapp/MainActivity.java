@@ -3,6 +3,7 @@ package com.example.loteriaapp;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -24,6 +25,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -44,26 +46,31 @@ public class MainActivity extends AppCompatActivity {
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
     private Button btnDownload, btnGenerate, btnNewGrid, btnGuardar;
+    private ImageView img1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-        initAdds();
-        callPermissions();
+        inicio();
+        iniciarAdd();
+        pedirPermisos();
 
     }
 
-    public void init() {
+    public void inicio() {
         btnDownload = (Button) findViewById(R.id.downloadButton);
         btnGenerate = (Button) findViewById(R.id.btnGenerate);
         btnNewGrid = (Button) findViewById(R.id.btnNewGrid);
         btnGuardar = (Button) findViewById(R.id.guardar);
+        img1 = (ImageView) findViewById(R.id.img1);
 
+
+        //Botón de descarga
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {
@@ -72,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //Generar tabla
         btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Nuevo grid
         btnNewGrid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,19 +96,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Guardar imágen
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GridLayout grid = (GridLayout) findViewById(R.id.tabla);
-                ImageView img1 = findViewById(R.id.img1);
-                Bitmap b = Screeenshot.tomarCaptura(grid);
-                img1.setImageBitmap(b);
+            //guardarImagen();
+                saveToGallery();
 
             }
         });
     }
 
-    private void callPermissions() {
+    private void pedirPermisos() {
         int permisosDeLecturaDeAlmacenamiento = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int permisosDeEscrituraDeAlmacenamiento = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
 
@@ -174,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void initAdds() {
+    public void iniciarAdd() {
         //Empieza AddMob
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -202,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         //Termina AddMob
     }
 
-    public void guardarImagen(Bitmap b){
+    /*public void guardarImagen(Bitmap b){
         /*
         * 1. Agarrar la imagen tipo Bitmap que esta en el imageView o directamente agarrar la imagen en la variable
         * 2. ¿Cómo guardo una imagen de tipo Bitmap en el almacenamiento del teléfono?
@@ -213,8 +222,83 @@ public class MainActivity extends AppCompatActivity {
         * */
 
         //SimpleDateFormat format = SimpleDateFormat("EE d MM yy", currentLocale);
+    //}*/
+
+
+    //Método con el que estoy experimentando
+    /*public void guardarImagen(){
+        ImageView img1 = (ImageView) findViewById(R.id.img1);
+
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) img1.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+
+        FileOutputStream outputStream = null;
+        File file = Environment.getExternalStorageDirectory();
+        File dir  = new File(file.getAbsolutePath() + "/LoteriaApp");
+        dir.mkdirs();
+
+        String filename = String.format("%d.png", System.currentTimeMillis());
+
+        File outfile = new File(dir, filename);
+        try{
+            outputStream  = new FileOutputStream(outfile);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100,outputStream);
+
+
+        try {
+            outputStream.flush();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
+            outputStream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }*/
+
+    private void saveToGallery(){
+        img1 = (ImageView) findViewById(R.id.img1);
+        GridLayout grid = (GridLayout) findViewById(R.id.tabla);
+        Bitmap b = Screeenshot.tomarCaptura(grid);
+        img1.setImageBitmap(b);
+
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) img1.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+
+        FileOutputStream outputStream = null;
+        File file = Environment.getExternalStorageDirectory();
+        File dir = new File(file.getAbsolutePath() + "/MyPics");
+        dir.mkdirs();
+
+        String filename = String.format("%d.png",System.currentTimeMillis());
+        File outFile = new File(dir,filename);
+        try{
+            outputStream = new FileOutputStream(outFile);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
+        try{
+            outputStream.flush();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try{
+            outputStream.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
+
 }
+
 
 
 
