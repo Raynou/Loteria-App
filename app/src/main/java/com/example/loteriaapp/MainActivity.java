@@ -211,56 +211,6 @@ public class MainActivity extends AppCompatActivity {
         //Termina AddMob
     }
 
-    /*public void guardarImagen(Bitmap b){
-        /*
-        * 1. Agarrar la imagen tipo Bitmap que esta en el imageView o directamente agarrar la imagen en la variable
-        * 2. ¿Cómo guardo una imagen de tipo Bitmap en el almacenamiento del teléfono?
-        * 3. ¿Dónde la guardo? ¿En la dirección del teléfono?, ¿Dónde consigo esa dirección?
-        * 4. Una vez tengo la dirección necesaria, vuelvo al punto 2, ¿cómo la guardo?
-        * 5. Básicamente, tomar el objeto, tomar la dirección y guardar el objeto en esa dirección
-        *
-        * */
-
-        //SimpleDateFormat format = SimpleDateFormat("EE d MM yy", currentLocale);
-    //}*/
-
-
-    //Método con el que estoy experimentando
-    /*public void guardarImagen(){
-        ImageView img1 = (ImageView) findViewById(R.id.img1);
-
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) img1.getDrawable();
-        Bitmap bitmap = bitmapDrawable.getBitmap();
-
-        FileOutputStream outputStream = null;
-        File file = Environment.getExternalStorageDirectory();
-        File dir  = new File(file.getAbsolutePath() + "/LoteriaApp");
-        dir.mkdirs();
-
-        String filename = String.format("%d.png", System.currentTimeMillis());
-
-        File outfile = new File(dir, filename);
-        try{
-            outputStream  = new FileOutputStream(outfile);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100,outputStream);
-
-
-        try {
-            outputStream.flush();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        try {
-            outputStream.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }*/
-
     private void saveToGallery(){
         img1 = (ImageView) findViewById(R.id.img1);
         GridLayout grid = (GridLayout) findViewById(R.id.tabla);
@@ -271,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = bitmapDrawable.getBitmap();
 
         FileOutputStream outputStream = null;
-        File file = Environment.getExternalStorageDirectory();
+        File file = getExternalFilesDir(null);
         File dir = new File(file.getAbsolutePath() + "/MyPics");
         dir.mkdirs();
 
@@ -296,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //Versión parcialmente terminada, falta pulir algunos detalles y profundizar en funcionalidades.
 }
 
 
