@@ -22,6 +22,8 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 
 import java.io.File;
@@ -45,24 +47,29 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    private Button btnDownload, btnGenerate, btnNewGrid, btnGuardar;
+    //private Button btnDownload, btnGenerate, btnNewGrid, btnGuardar;
     private ImageView img1;
+    public boolean clicked = false;
+    private FloatingActionButton mainBtn, newGridBtn, generateGridBtn, downloadBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        inicio();
-        iniciarAdd();
-        pedirPermisos();
+        mostrarBotoner(clicked);
+
+        FloatingActionButton fab = findViewById(R.id.mainFab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarBotoner(clicked);
+            }
+        });
 
     }
 
-    public void inicio() {
-        btnDownload = (Button) findViewById(R.id.downloadButton);
-        btnGenerate = (Button) findViewById(R.id.btnGenerate);
-        btnNewGrid = (Button) findViewById(R.id.btnNewGrid);
-        btnGuardar = (Button) findViewById(R.id.guardar);
+    /*public void inicio() {
+
         img1 = (ImageView) findViewById(R.id.img1);
 
 
@@ -105,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
     private void pedirPermisos() {
         int permisosDeLecturaDeAlmacenamiento = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -247,6 +254,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Versión parcialmente terminada, falta pulir algunos detalles y profundizar en funcionalidades.
+
+
+    private void mostrarBotoner(boolean clicked){
+        if (clicked==true){
+            downloadBtn.setVisibility(View.VISIBLE);
+            generateGridBtn.setVisibility(View.VISIBLE);
+            newGridBtn.setVisibility(View.VISIBLE);
+        }else{
+            downloadBtn.setVisibility(View.INVISIBLE);
+            generateGridBtn.setVisibility(View.INVISIBLE);
+            newGridBtn.setVisibility(View.INVISIBLE);
+        }
+
+    }
 }
 
 
