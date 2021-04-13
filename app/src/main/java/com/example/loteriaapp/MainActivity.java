@@ -125,7 +125,22 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Here's the generate grid FAB!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 ImageView img1 = findViewById(R.id.img1);
-                int myImage = R.id.img1;
+
+
+                /*int imgViewHeight = img1.getHeight()/4;
+                int imgViewWidth = img1.getWidth()/4;
+
+                Toast.makeText(MainActivity.this, "Height: " + imgViewHeight + "\n" + "Width: " + imgViewWidth , Toast.LENGTH_SHORT).show();
+
+                img1.setScaleX(imgViewWidth/4);
+                img1.setScaleY(imgViewHeight/4);*/
+
+                /*The images take his original size and ignore the limited from the imageView*/
+
+                //Test any tipe of scales
+                img1.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                img1.setImageResource(R.drawable.num1);
+
             }
         });
 
