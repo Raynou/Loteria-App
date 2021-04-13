@@ -56,16 +56,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        inicio();
 
     }
 
-    /*public void inicio() {
+    //If you commit any mistake you can comeback to the past commit or simply see the fabFinal branch, the changes made here gonna going to ve review and merge first the floatButtonXML and after the floatButtonJava IN THAT ORDER
+    public void inicio() {
 
         img1 = (ImageView) findViewById(R.id.img1);
 
 
-        //Botón de descarga
-        btnDownload.setOnClickListener(new View.OnClickListener() {
+
+        /*btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Generar tabla
+
         btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Nuevo grid
+
         btnNewGrid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Guardar imágen
+        Guardar imágen
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,8 +104,39 @@ public class MainActivity extends AppCompatActivity {
                 saveToGallery();
 
             }
+        });*/
+
+        //Nuevo grid
+        newGridFab = findViewById(R.id.newGridFab);
+        newGridFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's the new grid FAB!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
         });
-    }*/
+
+        //Generar tabla
+        generateFab = findViewById(R.id.generateGridFab);
+        generateFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's the generate grid FAB!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        //Botón de descarga
+        downloadFab = findViewById(R.id.downloadFab);
+        downloadFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's the download FAB!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+    }
 
     private void pedirPermisos() {
         int permisosDeLecturaDeAlmacenamiento = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
