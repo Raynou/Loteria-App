@@ -15,6 +15,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -22,7 +23,6 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 
@@ -50,21 +50,12 @@ public class MainActivity extends AppCompatActivity {
     //private Button btnDownload, btnGenerate, btnNewGrid, btnGuardar;
     private ImageView img1;
     public boolean clicked = false;
-    private FloatingActionButton mainBtn, newGridBtn, generateGridBtn, downloadBtn;
+    private FloatingActionButton newGridFab, generateFab, downloadFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mostrarBotoner(clicked);
-
-        FloatingActionButton fab = findViewById(R.id.mainFab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mostrarBotoner(clicked);
-            }
-        });
 
     }
 
@@ -256,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
     //Versión parcialmente terminada, falta pulir algunos detalles y profundizar en funcionalidades.
 
 
-    private void mostrarBotoner(boolean clicked){
+    /*private void mostrarBotoner(boolean clicked){
         if (clicked==true){
             downloadBtn.setVisibility(View.VISIBLE);
             generateGridBtn.setVisibility(View.VISIBLE);
@@ -267,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
             newGridBtn.setVisibility(View.INVISIBLE);
         }
 
-    }
+    }*/
 }
 
 
