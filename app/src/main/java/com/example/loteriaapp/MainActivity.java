@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.d("TAG", "El anuncio no ha sido cargado aún.");
                 }
+                saveToGallery();
             }
         });
 
