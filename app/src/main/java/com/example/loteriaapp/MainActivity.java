@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-        //Nuevo grid
+        //Nuevo grid???
         newGridFab = findViewById(R.id.newGridFab);
         newGridFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         downloadFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's the download FAB!", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Tabla guardada en su teléfono", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();

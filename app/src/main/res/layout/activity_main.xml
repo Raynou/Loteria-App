@@ -306,26 +306,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/tabla"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:fab_labelStyle="@style/customFab">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/generateGridFab">
+            android:id="@+id/generateGridFab"
+            app:fab_size="mini"
+            app:fab_title="Generar tabla"
+            app:fab_icon="@drawable/ic_baseline_grid_on_24">
 
         </com.getbase.floatingactionbutton.FloatingActionButton>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/newGridFab">
+            android:id="@+id/newGridFab"
+            app:fab_size="mini"
+            app:fab_title="Nueva tabla"
+            app:fab_icon="@drawable/ic_baseline_new_new_24">
 
         </com.getbase.floatingactionbutton.FloatingActionButton>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/downloadFab">
+            android:id="@+id/downloadFab"
+            app:fab_size="mini"
+            app:fab_title="Descargar tabla"
+            app:fab_icon="@drawable/ic_baseline_arrow_downward_24">
 
         </com.getbase.floatingactionbutton.FloatingActionButton>
 
