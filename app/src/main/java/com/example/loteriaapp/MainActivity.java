@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //If you commit any mistake you can comeback to the past commit or simply see the fabFinal branch, the changes made here gonna going to ve review and merge first the floatButtonXML and after the floatButtonJava IN THAT ORDER
+    //If you commit any mistake you can comeback to the past commit or simply see the fabFinal branch, the changes made here gonna going to be review and merge first the floatButtonXML and after the floatButtonJava IN THAT ORDER
     public void inicio() {
 
         img1 = (ImageView) findViewById(R.id.img1);
@@ -124,22 +124,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Here's the generate grid FAB!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                ImageView img1 = findViewById(R.id.img1);
-
-
-                /*int imgViewHeight = img1.getHeight()/4;
-                int imgViewWidth = img1.getWidth()/4;
-
-                Toast.makeText(MainActivity.this, "Height: " + imgViewHeight + "\n" + "Width: " + imgViewWidth , Toast.LENGTH_SHORT).show();
-
-                img1.setScaleX(imgViewWidth/4);
-                img1.setScaleY(imgViewHeight/4);*/
-
-                /*The images take his original size and ignore the limited from the imageView*/
-
-                //Test any tipe of scales
-                img1.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                img1.setImageResource(R.drawable.num1);
+                mostrarImagenes();
 
             }
         });
@@ -173,8 +158,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void mostrarImagenes() {
-        //Declaraciones de objetos
+
+        //Objects declarations
         ImageView img1 = findViewById(R.id.img1);
         ImageView img2 = findViewById(R.id.img2);
         ImageView img3 = findViewById(R.id.img3);
@@ -191,6 +178,26 @@ public class MainActivity extends AppCompatActivity {
         ImageView img14 = findViewById(R.id.img14);
         ImageView img15 = findViewById(R.id.img15);
         ImageView img16 = findViewById(R.id.img16);
+
+        //Set scale type for imageViews
+        img1.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img2.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img3.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img4.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img5.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img6.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img7.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img8.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img9.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img10.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img11.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img12.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img13.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img14.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img15.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img16.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+
 
         //Array de valores aleatorios
         int numeros[] = new int[16];

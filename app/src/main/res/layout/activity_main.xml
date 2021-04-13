@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/teal_200"
     tools:context=".MainActivity">
 
     <include
@@ -40,13 +40,13 @@
         <ImageView
             android:id="@+id/img1"
             android:layout_row="0"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
             android:background="@color/black"
-            >
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -58,7 +58,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -70,7 +73,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -82,7 +88,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
 
             <!-- Row 1 -->
@@ -97,7 +106,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -109,7 +121,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -121,7 +136,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -133,7 +151,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -148,7 +169,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -162,7 +186,9 @@
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
             android:background="@color/black"
-            >
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -175,7 +201,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -188,7 +217,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -203,7 +235,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -216,7 +251,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -228,7 +266,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
@@ -240,7 +281,10 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="0.5dp"
-            android:background="@color/black">
+            android:background="@color/black"
+            android:adjustViewBounds="true"
+            android:maxWidth="0dp"
+            android:maxHeight="0dp">
 
         </ImageView>
 
