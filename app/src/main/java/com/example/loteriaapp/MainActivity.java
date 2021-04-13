@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicio();
+        iniciarAdd();
 
     }
 
@@ -123,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Here's the generate grid FAB!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                ImageView img1 = findViewById(R.id.img1);
+                int myImage = R.id.img1;
             }
         });
 
@@ -133,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Here's the download FAB!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "El anuncio no ha sido cargado aún.");
+                }
             }
         });
 
