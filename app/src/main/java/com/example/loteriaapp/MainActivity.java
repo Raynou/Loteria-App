@@ -66,57 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         img1 = (ImageView) findViewById(R.id.img1);
 
-
-
-        /*btnDownload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    Log.d("TAG", "El anuncio no ha sido cargado aún.");
-                }
-
-            }
-        });
-
-
-        btnGenerate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarImagenes();
-            }
-        });
-
-
-        btnNewGrid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        Guardar imágen
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            //guardarImagen();
-                saveToGallery();
-
-            }
-        });*/
-
-        //Nuevo grid???
-        newGridFab = findViewById(R.id.newGridFab);
-        newGridFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Here's the new grid FAB!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         //Generar tabla
         generateFab = findViewById(R.id.generateGridFab);
         generateFab.setOnClickListener(new View.OnClickListener() {
@@ -308,21 +257,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
     //Versión parcialmente terminada, falta pulir algunos detalles y profundizar en funcionalidades.
 
-
-    /*private void mostrarBotoner(boolean clicked){
-        if (clicked==true){
-            downloadBtn.setVisibility(View.VISIBLE);
-            generateGridBtn.setVisibility(View.VISIBLE);
-            newGridBtn.setVisibility(View.VISIBLE);
-        }else{
-            downloadBtn.setVisibility(View.INVISIBLE);
-            generateGridBtn.setVisibility(View.INVISIBLE);
-            newGridBtn.setVisibility(View.INVISIBLE);
-        }
-
-    }*/
 }
 
 
