@@ -191,8 +191,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
-
+    
 
     public void iniciarAdd() {
         //Empieza AddMob
