@@ -1,6 +1,9 @@
 package com.example.loteriaapp;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    //private Button btnDownload, btnGenerate, btnNewGrid, btnGuardar;
+    String namePhoto;
     private ImageView img1;
     public boolean clicked = false;
     private FloatingActionButton newGridFab, generateFab, downloadFab;
@@ -83,14 +86,34 @@ public class MainActivity extends AppCompatActivity {
         downloadFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Tabla guardada en su teléfono", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {
                     Log.d("TAG", "El anuncio no ha sido cargado aún.");
                 }
-                saveToGallery();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                builder.setTitle("Kola loka mi jóven pupilo");
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+                builder.setNegativeButton("Okn't", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog myAlert = builder.create();
+                myAlert.show();
+
+                    /*saveToGallery();
+                    Snackbar.make(view, "Tabla guardada en su teléfono", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();*/
+
             }
         });
 
@@ -255,8 +278,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
 
     //Versión parcialmente terminada, falta pulir algunos detalles y profundizar en funcionalidades.
 
