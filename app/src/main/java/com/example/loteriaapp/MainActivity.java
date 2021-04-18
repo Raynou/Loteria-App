@@ -1,4 +1,4 @@
-package com.example.loteriaapp;
+    package com.example.loteriaapp;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -132,8 +132,18 @@ public class MainActivity extends AppCompatActivity {
                 StorageManager storageManager =  new StorageManager(img1, gridLayout, file);
                 //storageManager.saveToGallery();
 
-                /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                /*new AlertDialog.Builder(getApplication()).
+                        setMessage("xd").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();*/
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Kola loka mi jóven pupilo");
+                builder.setMessage("yayeison");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -143,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setNegativeButton("Okn't", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-w
+
                     }
                 });
                 AlertDialog myAlert = builder.create();
