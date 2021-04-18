@@ -106,14 +106,31 @@ public class MainActivity extends AppCompatActivity {
         downloadFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StorageManager storageManager =  new StorageManager(img1, gridLayout, file);
+
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {
                     Log.d("TAG", "El anuncio no ha sido cargado aún.");
                 }
+                try {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getApplication());
+                    builder.setTitle("Ingrese el nombre de su tabla").
+                            setMessage("asies");
+                    //Here's goes the edtText
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                storageManager.saveToGallery();
+                        }
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    //alertDialog.show();
+                }catch (Exception e){
+                    Log.v("Exception", e.toString());
+                }
+
+                StorageManager storageManager =  new StorageManager(img1, gridLayout, file);
+                //storageManager.saveToGallery();
 
                 /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                 builder.setTitle("Kola loka mi jóven pupilo");
@@ -126,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setNegativeButton("Okn't", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+w
                     }
                 });
                 AlertDialog myAlert = builder.create();
