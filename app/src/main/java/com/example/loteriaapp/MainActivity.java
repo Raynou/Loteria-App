@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,8 +15,10 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -29,6 +32,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.material.snackbar.Snackbar;
 
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
@@ -45,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private final int REQUEST_CODE_ASK_PERMISSION = 111;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    String namePhoto;
+    String namePhoto="";
+    Bitmap myTable;
     private ImageView img1;
     private FloatingActionButton generateFab, downloadFab;
 
@@ -112,56 +117,57 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.d("TAG", "El anuncio no ha sido cargado aún.");
                 }
-                try {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getApplication());
-                    builder.setTitle("Ingrese el nombre de su tabla").
-                            setMessage("asies");
-                    //Here's goes the edtText
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    //alertDialog.show();
-                }catch (Exception e){
-                    Log.v("Exception", e.toString());
-                }
 
                 StorageManager storageManager =  new StorageManager(img1, gridLayout, file);
-                //storageManager.saveToGallery();
-
-                /*new AlertDialog.Builder(getApplication()).
-                        setMessage("xd").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                }).show();*/
-
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Kola loka mi jóven pupilo");
-                builder.setMessage("yayeison");
+                builder.setTitle("Nombre de la tabla: ");
+
+                //Ticket #1
+                /*Apparently, when the user is typing the name of his table, the keyboard generate a problem when the class take the screen of the GridLayout,
+                 a possible solution is show the screen in other activity*/
+                final EditText input = new EditText(MainActivity.this);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.MATCH_PARENT);
+                input.setLayoutParams(lp);
+                builder.setView(input);
+
+
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        //Ticket #2
+                        /*A problem appears when the program is trying to validating the content of the variable or of the editText, nothing happens and let the user put a void name, for example*/
+
+                        //Ticket #3
+                        //storageManager.saveToGallery(/*Here's go the parameter of the name of the photo who choose the user*/);
+                       try {
+
+                           Intent intent = new Intent(MainActivity.this, TableConfirmationActivity.class);
+                           Screeenshot screeenshot = new Screeenshot();
+                           myTable = screeenshot.tomarCaptura(gridLayout);
+
+                           ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                           myTable.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                           byte[] byteArray = stream.toByteArray();
+                           intent.putExtra("BYTE_ARRAY_IMAGE", byteArray);
+                           startActivity(intent);
+                       }catch (Exception e){
+                           Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                           Log.v("EXCEPTION",e.toString());
+                       }
 
                     }
                 });
 
-                builder.setNegativeButton("Okn't", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        //Do anything
                     }
                 });
                 AlertDialog myAlert = builder.create();
                 myAlert.show();
-
-                    /*saveToGallery();
-                    Snackbar.make(view, "Tabla guardada en su teléfono", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();*/
 
             }
         });
