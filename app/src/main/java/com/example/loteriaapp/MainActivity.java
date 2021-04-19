@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //Ticket #2
+                        //Ticket #2. Solved
                         /*A problem appears when the program is trying to validating the content of the variable or of the editText, nothing happens and let the user put a void name, for example*/
 
                         //Ticket #3
