@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Nombre de la tabla: ");
 
-                //Ticket #1
+                //Ticket #1. Partially solved.
                 /*Apparently, when the user is typing the name of his table, the keyboard generate a problem when the class take the screen of the GridLayout,
                  a possible solution is show the screen in other activity*/
                 final EditText input = new EditText(MainActivity.this);
@@ -136,13 +136,13 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //Ticket #2. Solved
+                        //Ticket #2.
                         /*A problem appears when the program is trying to validating the content of the variable or of the editText, nothing happens and let the user put a void name, for example*/
 
                         //Ticket #3
                         //storageManager.saveToGallery(/*Here's go the parameter of the name of the photo who choose the user*/);
                        try {
-
+                            /*Ticket #4. Put here a method for hide the keyboard*/
                            Intent intent = new Intent(MainActivity.this, TableConfirmationActivity.class);
                            Screeenshot screeenshot = new Screeenshot();
                            myTable = screeenshot.tomarCaptura(gridLayout);
