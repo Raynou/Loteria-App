@@ -24,18 +24,26 @@ public class TableConfirmationActivity extends AppCompatActivity {
 
         myTableView = (ImageView) findViewById(R.id.myTableView);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        String namePhoto = getIntent().getStringExtra("NAME_PHOTO");
+        byte[] byteArray = getIntent().getByteArrayExtra("BYTE_ARRAY_IMAGE");
+
+        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        myTableView.setImageBitmap(bmp);
+
+        StorageManager storageManager = new StorageManager(myTableView, bmp, getExternalFilesDir(null));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                storageManager.saveToGallery(namePhoto);
+                Snackbar.make(view, "Tabla guardada", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent intent = new Intent(TableConfirmationActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
 
         });
-        byte[] byteArray = getIntent().getByteArrayExtra("BYTE_ARRAY_IMAGE");
-        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
-        myTableView.setImageBitmap(bmp);
     }
 }

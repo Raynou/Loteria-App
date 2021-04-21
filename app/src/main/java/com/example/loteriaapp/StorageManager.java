@@ -10,32 +10,29 @@ import java.io.FileOutputStream;
 
 public class StorageManager {
     public ImageView myImg;
-    public GridLayout myGrid;
     public File myDir;
-    public String photoName;
+    public Bitmap bitmap;
 
     public StorageManager(){
         this.myImg = null;
-        this.myGrid = null;
+        this.bitmap = null;
         this.myDir = null;
-        this.photoName = "";
     }
 
-    public StorageManager(ImageView myImg, GridLayout myGrid, File myDir){
+    public StorageManager(ImageView myImg, Bitmap bitmap, File myDir){
         this.myImg = myImg;
-        this.myGrid = myGrid;
+        this.bitmap = bitmap;
         this.myDir = myDir;
     }
-   public void saveToGallery(){
-        Bitmap b = Screeenshot.tomarCaptura(myGrid);
-        myImg.setImageBitmap(b);
+   public void saveToGallery(String namePhoto){
+        myImg.setImageBitmap(bitmap);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) myImg.getDrawable();
         Bitmap bitmap = bitmapDrawable.getBitmap();
         FileOutputStream outputStream = null;
         File dir = new File(myDir.getAbsolutePath() + "/MyPics");
         dir.mkdirs();
 
-        String filename = String.format("%d.png",System.currentTimeMillis());
+        String filename = String.format(namePhoto +".png",System.currentTimeMillis());
         File outFile = new File(dir,filename);
         try{
             outputStream = new FileOutputStream(outFile);

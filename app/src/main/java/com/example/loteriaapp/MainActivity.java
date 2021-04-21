@@ -3,21 +3,18 @@
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 
-import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -37,9 +34,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Arrays;
-import java.util.Random;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -121,46 +115,47 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("TAG", "El anuncio no ha sido cargado aún.");
                 }
 
-                StorageManager storageManager =  new StorageManager(img1, gridLayout, file);
+                myTable = Screeenshot.tomarCaptura(gridLayout);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Nombre de la tabla: ");
 
-                //Ticket #1. Partially solved.
-                /*Apparently, when the user is typing the name of his table, the keyboard generate a problem when the class take the screen of the GridLayout,
-                 a possible solution is show the screen in other activity*/
                 final EditText input = new EditText(MainActivity.this);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT);
                 input.setLayoutParams(lp);
                 builder.setView(input);
-
+                input.setText("");
 
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //Ticket #2.
-                        /*A problem appears when the program is trying to validating the content of the variable or of the editText, nothing happens and let the user put a void name, for example*/
 
-                        //Ticket #3
-                        //storageManager.saveToGallery(/*Here's go the parameter of the name of the photo who choose the user*/);
-                       try {
-                            /*Ticket #4. Put here a method for hide the keyboard*/
-                           Intent intent = new Intent(MainActivity.this, TableConfirmationActivity.class);
-                           Screeenshot screeenshot = new Screeenshot();
-                           myTable = screeenshot.tomarCaptura(gridLayout);
-                           ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                           myTable.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                           byte[] byteArray = stream.toByteArray();
-                           intent.putExtra("BYTE_ARRAY_IMAGE", byteArray);
-                           startActivity(intent);
-                       }catch (Exception e){
-                           Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-                           Log.v("EXCEPTION",e.toString());
-                       }
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        if (TextUtils.isEmpty(input.getText().toString())){
+                            Toast.makeText(MainActivity.this, "Por favor, ingrese un nombre válido", Toast.LENGTH_SHORT).show();
+                        }else {
+                            try {
+                                Intent intent = new Intent(MainActivity.this, TableConfirmationActivity.class);
+                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                myTable.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                                namePhoto = input.getText().toString();
+                                byte[] byteArray = stream.toByteArray();
+                                intent.putExtra("BYTE_ARRAY_IMAGE",byteArray);
+                                intent.putExtra("NAME_PHOTO", namePhoto);
+                                startActivity(intent);
+                            }catch (Exception e){
+                                Log.v("EXCEPTION", e.toString());
+                            }
+                        }
+
+
 
                     }
                 });
+
+
+
 
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -215,22 +210,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Termina AddMob
-    }
-
-    public static void hideKeyboard(Activity activity) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        //Find the currently focused view, so we can grab the correct window token from it.
-        View view = activity.getCurrentFocus();
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        if (view == null) {
-            view = new View(activity);
-        }
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    public static void hideKeyboardFrom(Context context, View view) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 
