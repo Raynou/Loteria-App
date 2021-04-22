@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                                 //I pass a parameter of type ByteArrayOutPutStream, change the content of that variable and returns a true. //True
                                 /* I supose what in the methos the stream take a value.
                                 More information: https://developer.android.com/reference/android/graphics/Bitmap#compress(android.graphics.Bitmap.CompressFormat,%20int,%20java.io.OutputStream)*/
-                                myTable.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                                myTable.compress(Bitmap.CompressFormat.JPEG, 92, stream);
 
                                 namePhoto = input.getText().toString();
 

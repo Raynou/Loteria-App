@@ -31,14 +31,13 @@ public class TableFill{
         //Array de valores aleatorios
         int numeros[] = new int[16];
 
-        /*int imagenes[] =
-                {R.drawable.num20, R.drawable.num21,R.drawable.num22,R.drawable.num25,R.drawable.num26,R.drawable.num30,R.drawable.num32,R.drawable.num33,
-                R.drawable.num34, R.drawable.num37, R.drawable.num38,R.drawable.num39,R.drawable.num41,R.drawable.num48,R.drawable.num50,R.drawable.num51,R.drawable.num52,R.drawable.num53,
-                R.drawable.num54};*/
         int imagenes[] =
+                {R.drawable.num20, R.drawable.num21,R.drawable.num22,R.drawable.num25,R.drawable.num26,R.drawable.num30,R.drawable.num32,R.drawable.num33,
+                R.drawable.num34, R.drawable.num37, R.drawable.num38,R.drawable.num39,R.drawable.num41,R.drawable.num48,R.drawable.num50,R.drawable.num51,R.drawable.num52};
+        /*int imagenes[] =
                 {R.drawable.num1, R.drawable.num2, R.drawable.num3, R.drawable.num4, R.drawable.num5,
                         R.drawable.num6, R.drawable.num7, R.drawable.num8, R.drawable.num9, R.drawable.num10,
-                        R.drawable.num11, R.drawable.num12, R.drawable.num13, R.drawable.num14, R.drawable.num15, R.drawable.num16, R.drawable.num17};
+                        R.drawable.num11, R.drawable.num12, R.drawable.num13, R.drawable.num14, R.drawable.num15, R.drawable.num16, R.drawable.num17};*/
         ImageView imageViews[] = {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16};
         introducirValoresEnArray(numeros);
 
