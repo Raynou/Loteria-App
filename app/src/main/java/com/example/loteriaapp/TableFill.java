@@ -63,6 +63,7 @@ public class TableFill{
         return arrayBase;
     }
 
+    //Check the filter bc some cards repeats
     private static boolean filtro(int aux, int i, int arrayBase[]) {
         for (int x = 0; x < i; x++) {
             if (arrayBase[x] == aux) {

@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
     String namePhoto="", confirmationMessage;
-    Bitmap myTable;
+    Bitmap myTable; //Should I change the name to bitmapOfTheTable
     private ImageView img1;
     private FloatingActionButton generateFab, downloadFab;
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         GridLayout gridLayout = (GridLayout) findViewById(R.id.tabla);
         File file = getExternalFilesDir(null);
 
-        //Generar tabla
+        //Generate table
         generateFab = findViewById(R.id.generateGridFab);
         generateFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +106,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Botón de descarga
+        //Download Button function
         downloadFab = findViewById(R.id.downloadFab);
         downloadFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //Load InterstitalAdd
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {
@@ -134,15 +135,21 @@ public class MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int id) {
-
                         if (TextUtils.isEmpty(input.getText().toString())){
                             Toast.makeText(MainActivity.this, "Por favor, ingrese un nombre válido", Toast.LENGTH_SHORT).show();
                         }else {
                             try {
                                 Intent intent = new Intent(MainActivity.this, TableConfirmationActivity.class);
+
                                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+                                //I pass a parameter of type ByteArrayOutPutStream, change the content of that variable and returns a true. //True
+                                /* I supose what in the methos the stream take a value.
+                                More information: https://developer.android.com/reference/android/graphics/Bitmap#compress(android.graphics.Bitmap.CompressFormat,%20int,%20java.io.OutputStream)*/
                                 myTable.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
                                 namePhoto = input.getText().toString();
+
                                 byte[] byteArray = stream.toByteArray();
 
                                 StorageManager storageManager = new StorageManager();
