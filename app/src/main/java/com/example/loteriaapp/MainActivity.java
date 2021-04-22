@@ -144,16 +144,22 @@ public class MainActivity extends AppCompatActivity {
                                 myTable.compress(Bitmap.CompressFormat.PNG, 100, stream);
                                 namePhoto = input.getText().toString();
                                 byte[] byteArray = stream.toByteArray();
-                                intent.putExtra("BYTE_ARRAY_IMAGE",byteArray);
+
+                                StorageManager storageManager = new StorageManager();
+                                storageManager.saveToGallery(namePhoto, byteArray);
+
+
+                                /*intent.putExtra("BYTE_ARRAY_IMAGE_FIRST_PART",byteArray);
                                 intent.putExtra("NAME_PHOTO", namePhoto);
-                                startActivity(intent);
+
+                                startActivity(intent);*/
+
+                                Toast.makeText(MainActivity.this, "Tabla guardada.", Toast.LENGTH_SHORT).show();
+
                             }catch (Exception e){
                                 Log.v("EXCEPTION", e.toString());
                             }
                         }
-
-
-
                     }
                 });
 
