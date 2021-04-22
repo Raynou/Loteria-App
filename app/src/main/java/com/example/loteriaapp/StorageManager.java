@@ -27,15 +27,15 @@ public class StorageManager {
     }
 
     /*Maybe I should take the array byte and convert that array to a bitmap for work with him*/
-   public void saveToGallery(String namePhoto, byte[] arrayByte){
+   public void saveToGallery(String namePhoto){
        /*Take the screen of the GridLayout and obtain the bitmap*/
-        //myImg.setImageBitmap(bitmap);
-        //BitmapDrawable bitmapDrawable = (BitmapDrawable) myImg.getDrawable();
+        myImg.setImageBitmap(bitmap);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) myImg.getDrawable();
 
         //Here's goes the method for convert the arrayBye to a bitmap.
-       Bitmap bitmap = BitmapFactory.decodeByteArray(arrayByte, 0, arrayByte.length);
+       //Bitmap bitmap = BitmapFactory.decodeByteArray(arrayByte, 0, arrayByte.length);
 
-        //Bitmap bitmap = bitmapDrawable.getBitmap(); //Here get the bitmap converted from your arrayByte
+        Bitmap bitmap = bitmapDrawable.getBitmap(); //Here get the bitmap converted from your arrayByte
 
         FileOutputStream outputStream = null;
         File dir = new File(myDir.getAbsolutePath() + "/MyPics");

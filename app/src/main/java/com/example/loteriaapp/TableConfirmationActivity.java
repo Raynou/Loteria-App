@@ -37,10 +37,11 @@ public class TableConfirmationActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*storageManager.saveToGallery(namePhoto);
+                storageManager.saveToGallery(namePhoto);
                 Intent intent = new Intent(TableConfirmationActivity.this, MainActivity.class);
                 intent.putExtra("CONFIRMATION_MESSAGE", "Imágen guardada");
-                startActivity(intent);*/
+                startActivity(intent);
+                finish();
             }
 
 

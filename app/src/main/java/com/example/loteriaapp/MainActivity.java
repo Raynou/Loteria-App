@@ -152,16 +152,11 @@ public class MainActivity extends AppCompatActivity {
 
                                 byte[] byteArray = stream.toByteArray();
 
-                                StorageManager storageManager = new StorageManager();
-                                storageManager.saveToGallery(namePhoto, byteArray);
-
-
-                                /*intent.putExtra("BYTE_ARRAY_IMAGE_FIRST_PART",byteArray);
+                                intent.putExtra("BYTE_ARRAY_IMAGE",byteArray);
                                 intent.putExtra("NAME_PHOTO", namePhoto);
 
-                                startActivity(intent);*/
-
-                                Toast.makeText(MainActivity.this, "Tabla guardada.", Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
+                                finish();
 
                             }catch (Exception e){
                                 Log.v("EXCEPTION", e.toString());
