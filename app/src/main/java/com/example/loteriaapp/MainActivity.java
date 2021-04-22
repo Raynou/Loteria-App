@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private final int REQUEST_CODE_ASK_PERMISSION = 111;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    String namePhoto="";
+    String namePhoto="", confirmationMessage;
     Bitmap myTable;
     private ImageView img1;
     private FloatingActionButton generateFab, downloadFab;
@@ -55,8 +55,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Objects declarations
 
+        confirmationMessage=getIntent().getStringExtra("CONFIRMATION_MESSAGE");
+        if (confirmationMessage!=null) {
+            Toast.makeText(this, confirmationMessage, Toast.LENGTH_SHORT).show();
+        }
 
         init();
         iniciarAdd();

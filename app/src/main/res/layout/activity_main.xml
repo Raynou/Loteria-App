@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background_color"
     tools:context=".MainActivity">
 
     <include
@@ -308,7 +308,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tabla"
         app:layout_constraintEnd_toEndOf="parent"
         app:fab_labelStyle="@style/customFab"
-        app:fab_addButtonColorNormal="#DC7D7D">
+        app:fab_addButtonColorNormal="@color/green_main">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
