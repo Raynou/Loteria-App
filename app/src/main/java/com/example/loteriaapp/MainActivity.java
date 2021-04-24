@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(this, "Version 0.9.4", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Version 0.9.5", Toast.LENGTH_SHORT).show();
 
         confirmationMessage=getIntent().getStringExtra("CONFIRMATION_MESSAGE");
         if (confirmationMessage!=null) {

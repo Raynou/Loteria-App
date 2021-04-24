@@ -33,7 +33,9 @@ public class TableFill{
 
         int imagenes[] =
                 {R.drawable.num20, R.drawable.num21,R.drawable.num22,R.drawable.num25,R.drawable.num26,R.drawable.num30,R.drawable.num32,R.drawable.num33,
-                R.drawable.num34, R.drawable.num37, R.drawable.num38,R.drawable.num39,R.drawable.num41,R.drawable.num48,R.drawable.num50,R.drawable.num51,R.drawable.num52};
+                R.drawable.num34, R.drawable.num37, R.drawable.num38,R.drawable.num39,R.drawable.num41,R.drawable.num48,R.drawable.num50,R.drawable.num51,R.drawable.num52,
+                R.drawable.num6, R.drawable.num9, R.drawable.num10, R.drawable.num11, R.drawable.num13, R.drawable.num14, R.drawable.num15, R.drawable.num17,R.drawable.num18,
+                R.drawable.num19, R.drawable.num53, R.drawable.num54};
         /*int imagenes[] =
                 {R.drawable.num1, R.drawable.num2, R.drawable.num3, R.drawable.num4, R.drawable.num5,
                         R.drawable.num6, R.drawable.num7, R.drawable.num8, R.drawable.num9, R.drawable.num10,
@@ -53,10 +55,10 @@ public class TableFill{
         Random num = new Random();
         int aux;
         for (int i = 0; i < arrayBase.length; i++) {
-            aux = num.nextInt(17);
+            aux = num.nextInt(29);
 
             while (filtro(aux, i, arrayBase)) {
-                aux = num.nextInt(17);
+                aux = num.nextInt(29);
             }
             arrayBase[i] = aux;
         }
