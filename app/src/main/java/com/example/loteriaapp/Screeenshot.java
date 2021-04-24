@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.view.View;
 
 public class Screeenshot {
-    public static Bitmap tomarCaptura(View v){
+    public static Bitmap takeScreenShot(View v){
         v.setDrawingCacheEnabled(true);
         v.buildDrawingCache(true);
         Bitmap b = Bitmap.createBitmap((v.getDrawingCache()));
@@ -13,6 +13,6 @@ public class Screeenshot {
     }
 
     public static Bitmap tomarCapturaDeVistaRaíz(View v){
-        return tomarCaptura(v.getRootView());
+        return takeScreenShot(v.getRootView());
     }
 }

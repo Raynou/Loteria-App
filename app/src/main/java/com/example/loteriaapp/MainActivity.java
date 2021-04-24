@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         init();
-        iniciarAdd();
+        initAdd();
 
     }
 
@@ -119,16 +119,16 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("TAG", "El anuncio no ha sido cargado aún.");
                 }
 
-                myTable = Screeenshot.tomarCaptura(gridLayout);
+                myTable = Screeenshot.takeScreenShot(gridLayout);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Nombre de la tabla: ");
 
                 final EditText input = new EditText(MainActivity.this);
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT);
-                input.setLayoutParams(lp);
+                input.setLayoutParams(layoutParams);
                 builder.setView(input);
                 input.setText("");
 
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
                                 //I pass a parameter of type ByteArrayOutPutStream, change the content of that variable and returns a true. //True
-                                /* I supose what in the methos the stream take a value.
+                                /* I supose what in the method the stream take a value.
                                 More information: https://developer.android.com/reference/android/graphics/Bitmap#compress(android.graphics.Bitmap.CompressFormat,%20int,%20java.io.OutputStream)*/
                                 myTable.compress(Bitmap.CompressFormat.JPEG, 92, stream);
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("NAME_PHOTO", namePhoto);
 
                                 startActivity(intent);
-                                finish();
+                                //finish();
 
                             }catch (Exception e){
                                 Log.v("EXCEPTION", e.toString());
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Do anything
@@ -184,10 +184,10 @@ public class MainActivity extends AppCompatActivity {
 
     //Change the semantics
     private void askPermissions() {
-        int permisosDeLecturaDeAlmacenamiento = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permisosDeEscrituraDeAlmacenamiento = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        int readOfStoragePermissions = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int writeOfStoragePermissions = ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
 
-        if (permisosDeLecturaDeAlmacenamiento != PackageManager.PERMISSION_GRANTED || permisosDeEscrituraDeAlmacenamiento != PackageManager.PERMISSION_GRANTED) {
+        if (readOfStoragePermissions != PackageManager.PERMISSION_GRANTED || writeOfStoragePermissions != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_ASK_PERMISSION);
             }
@@ -195,8 +195,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void iniciarAdd() {
-        //Empieza AddMob
+    public void initAdd() {
+        //Starts AddMob
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        //Fin del banner
+        //End from the banner
 
         //Intersitital
         mInterstitialAd = new InterstitialAd(this);
@@ -220,12 +220,15 @@ public class MainActivity extends AppCompatActivity {
         //Fin del intersitital
 
 
-        //Termina AddMob
+        //End from the AddMob
     }
 
 
 
-    //Versión parcialmente terminada, falta pulir algunos detalles y profundizar en funcionalidades.
+    //Beta version, some bugs for fix
+
+    /*
+    * Bug 1: The cards repeats*/
 
 }
 
