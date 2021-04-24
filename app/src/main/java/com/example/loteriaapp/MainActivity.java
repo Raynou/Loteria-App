@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toast.makeText(this, "Version 0.9.4", Toast.LENGTH_SHORT).show();
+
         confirmationMessage=getIntent().getStringExtra("CONFIRMATION_MESSAGE");
         if (confirmationMessage!=null) {
             Toast.makeText(this, confirmationMessage, Toast.LENGTH_SHORT).show();
@@ -146,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                                 //I pass a parameter of type ByteArrayOutPutStream, change the content of that variable and returns a true. //True
                                 /* I supose what in the method the stream take a value.
                                 More information: https://developer.android.com/reference/android/graphics/Bitmap#compress(android.graphics.Bitmap.CompressFormat,%20int,%20java.io.OutputStream)*/
-                                myTable.compress(Bitmap.CompressFormat.JPEG, 92, stream);
+                                myTable.compress(Bitmap.CompressFormat.JPEG, 89, stream);
 
                                 namePhoto = input.getText().toString();
 
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("NAME_PHOTO", namePhoto);
 
                                 startActivity(intent);
-                                //finish();
+                                finish();
 
                             }catch (Exception e){
                                 Log.v("EXCEPTION", e.toString());
