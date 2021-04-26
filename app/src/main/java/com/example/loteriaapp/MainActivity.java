@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 TableFill tableFill = new TableFill();
                 try {
-                    tableFill.mostrarImagenes(img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16);
+                    tableFill.showImages(img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16);
                     Snackbar.make(view, "New table created!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }catch (Exception e){
