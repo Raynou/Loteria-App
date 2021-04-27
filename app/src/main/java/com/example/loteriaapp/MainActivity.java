@@ -43,6 +43,7 @@ import androidx.core.app.ActivityCompat;
 public class MainActivity extends AppCompatActivity {
 
 
+    //V1.0.1
     private final int REQUEST_CODE_ASK_PERMISSION = 111;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
@@ -55,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toast.makeText(this, "Version 0.9.8", Toast.LENGTH_SHORT).show();
-
         confirmationMessage=getIntent().getStringExtra("CONFIRMATION_MESSAGE");
         if (confirmationMessage!=null) {
             Toast.makeText(this, confirmationMessage, Toast.LENGTH_SHORT).show();
@@ -148,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                                 //I pass a parameter of type ByteArrayOutPutStream, change the content of that variable and returns a true. //True
                                 /* I supose what in the method the stream take a value.
                                 More information: https://developer.android.com/reference/android/graphics/Bitmap#compress(android.graphics.Bitmap.CompressFormat,%20int,%20java.io.OutputStream)*/
-                                myTable.compress(Bitmap.CompressFormat.JPEG, 89, stream);
+                                myTable.compress(Bitmap.CompressFormat.JPEG, 80, stream);
 
                                 namePhoto = input.getText().toString();
 
